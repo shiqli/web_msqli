@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+{% block title %}{% trans "Home" %}{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/customize.css">
+{% endblock %}
+
+
+
+{% block jumba %}
+<!--  Carousel - consult the Twitter Bootstrap docs at 
+      http://twitter.github.com/bootstrap/javascript.html#carousel -->
+<div id="frontpage" class="carousel slide"><!-- class of slide for animation -->
+<!-- Indicators -->
+<ol class="carousel-indicators">
+<li data-target="#frontpage" data-slide-to="0" class="active"></li>
+<li data-target="#frontpage" data-slide-to="1"></li>
+</ol>
+  <div class="carousel-inner">
+    <div class="item active"><!-- class of active since it's the first item -->
+      <img src="/static/media/uploads/gallery/Arizona2.jpg" alt="background" />
+      <div class="carousel-caption">
+	<h1>Welcome to my personal website!</h1>
+        <p>Here, you will find some interesting information on my research and some ongoing miscellaneous independent projects.</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="/static/media/uploads/gallery/news.jpg" alt="news" />
+      <div class="carousel-caption">
+	<h1>The strangeness of the nanoworld</h1>
+	<p> My recent work 'Ultra-narrow resonance monopole phase array' will be featured as cover page story of Applied Physics Letter in June 9th 2014. Here is an artist visualization of the monopole array realized in this work.</p>
+	<P> The recent development of this work will also be presented by me in SPIE Photonics and Optics Conference 2014, San Diego 2014</p>
+      </div>
+    </div>
+  </div><!-- /.carousel-inner -->
+  <!--  Next and Previous controls below
+        href values must reference the id for this carousel -->
+    <a class="carousel-control left" href="#frontpage" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#frontpage" data-slide="next">&rsaquo;</a>
+</div><!-- /.carousel -->
+{% endblock %}
+
+

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load i18n staticfiles %}
+
+{% block meta_title %}{% trans "Publication" %}{% endblock %}
+{% block title %}{% trans "Publication" %}{% endblock %}
+
+{% block breadcrumb_menu %}
+<li class="active">{% trans "Publication" %}</li>
+{% endblock %}
+
+
+
+{% block main %}
+<h1><br>Refereed Publication</h1>
+
+	{% if publication_list %}
+            <div class="container">	
+             <ul>
+		{% for article in publication_list %}
+		      <div class="row">
+  	                  <li><a href="{{article.link}}">{{article.headline}}</a>
+				<p>by: {% for coauthorranked in article.authorinrank %}
+					{% if coauthorranked.author.first_name == "Shiqiang" %}
+						<b>{{coauthorranked.author}},</b>
+					{% else %}
+						{{coauthorranked.author}}, 
+					{% endif %}
+					{% endfor %}
+				   </p><p>published in <b>{{article.journal}}</b>, <b>{{article.year}}</b></p>
+		       </div>
+                       <div class="row">
+			 <div class="share42init" data-image="{{article.image}}"data-url="{{article.link}}" data-title="{{article.headline}}"></div>
+				<script type="text/javascript" src="{% static "share42/share42.js" %}"></script>  
+                         </div>
+		       <div class="row">
+		          <p><img src="{{article.image}}"></p>
+		       </div>
+		{% endfor %}
+	       </ul>
+              </div>
+	{% else %}
+		<p> No publications, so sad:(</p>
+	{% endif %}
+
+{% endblock %}
+
+
+
